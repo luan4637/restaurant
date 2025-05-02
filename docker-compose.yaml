@@ -1,0 +1,48 @@
+version: '0.01'
+services:
+  mysql:
+    image: mysql:8.0.39
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_DATABASE: restaurant_db
+      MYSQL_USER: restaurant_user
+      MYSQL_PASSWORD: restaurant_password
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+    networks:
+      - internal
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - 8080:80
+    environment:
+      - PMA_HOSTS=host.docker.internal
+      - PMA_ARBITRARY=1
+  # backend:
+  #   image: node:lts-alpine
+  #   volumes:
+  #     - .:/usr/share
+  #   ports:
+  #     - 3000:3000
+  #   command:
+  #     - sh
+  #     - "-c"
+  #     - |
+  #       cd /usr/share
+  #       npm install
+  #       npm run build
+  #       npm run typeorm migration:generate ./migrations/migration -- -d ./src/infrastructure/dataSource/AppDataSource.ts
+  #       npm run typeorm migration:run -- -d ./src/infrastructure/dataSource/AppDataSource.ts
+  #       npm start
+  #   depends_on:
+  #     mysql:
+  #       condition: service_healthy
+  #   networks:
+  #     - internal
+networks:
+  internal:
+    driver: bridge
