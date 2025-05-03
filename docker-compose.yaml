@@ -22,7 +22,7 @@ services:
       - 8080:80
     environment:
       - PMA_HOSTS=host.docker.internal
-      - PMA_ARBITRARY=1
+      - PMA_USER=root
   backend:
     image: node:lts-alpine
     volumes:
