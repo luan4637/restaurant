@@ -17,6 +17,6 @@ app.use(express.json());
 
 app.use('/', routes);
 
-app.listen(port, hostname, () => {
-    console.log(`[server]: Server is running at http://${hostname}:${port}`);
+app.listen(port, () => {
+    console.log(`[server]: Server is running at http://localhost:${port}`);
 });
