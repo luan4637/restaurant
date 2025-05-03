@@ -1,0 +1,86 @@
+body {
+    margin: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2vw;
+    color: #000;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+ul li {
+    display: inline-block;
+}
+
+figure {
+    margin: 0;
+}
+
+.restaurant-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -1em;
+}
+
+.restaurant-list li {
+    display: inline-block;
+    padding: 1em;
+    width: 33.3333%;
+}
+.restaurant-item {
+
+}
+.restaurant-item-info {
+    position: relative;
+}
+.restaurant-item h3 {
+    padding-right: 4em;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.restaurant-item figure {
+    border-radius: 1em;
+    overflow: hidden;
+    height: 16em;
+}
+.restaurant-item p,
+.restaurant-item em {
+    color: #666;
+}
+.restaurant-item em {
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+    font-style: normal;
+}
+.restaurant-item em span {
+    display: flex;
+    align-items: center;
+}
+.restaurant-item em img {
+    margin-right: 0.3em;
+    width: 1em;
+}
+.restaurant-item em button {
+    float: right;
+    margin-top: 0.2em;
+    padding: 0;
+    border: 0;
+    background: none;
+    text-align: center;
+    cursor: pointer;
+}
+.restaurant-item em button:hover img {
+    opacity: 1;
+}
+.restaurant-item em button img {
+    width: 1.3em;
+    opacity: 0.6;
+}

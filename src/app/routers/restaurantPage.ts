@@ -8,6 +8,11 @@ restaurantPage.get('/', (req: Request, res: Response, next) => {
     restaurantController.index();
 });
 
+restaurantPage.get('/restaurant', (req: Request, res: Response, next) => {
+    const restaurantController = new RestaurantController(req, res);
+    restaurantController.index();
+});
+
 restaurantPage.post('/restaurant/update/:id', (req: Request, res: Response, next) => {
     const restaurantController = new RestaurantController(req, res);
     restaurantController.update();
