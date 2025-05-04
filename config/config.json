@@ -3,7 +3,7 @@
     "username": "restaurant_user",
     "password": "restaurant_password",
     "database": "restaurant_db",
-    "host": "postgres",
+    "host": "localhost",
     "dialect": "postgres",
     "port": 5432
   },
