@@ -9,13 +9,16 @@ const process = require('process');
 const rootPath = path.resolve('./');
 const env = process.env.NODE_ENV || 'development';
 const config = require(rootPath + '/config/config.json')[env];
+const configtest = require(rootPath + '/config/config.json');
+console.log(env);
+console.log(configtest);
 exports.AppDataSource = new typeorm_1.DataSource({
-    type: config.dialect,
-    host: config.host || 'localhost',
-    port: config.port || 3306,
-    username: config.username,
-    password: config.password,
-    database: config.database,
+    type: 'mysql',
+    host: 'localhost',
+    port: 3306,
+    username: 'restaurant_user',
+    password: 'restaurant_password',
+    database: 'restaurant_db',
     entities: [
         RestaurantModel_1.RestaurantModel
     ],
