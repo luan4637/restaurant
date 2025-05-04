@@ -18,6 +18,9 @@ export const AppDataSource = new DataSource({
     entities: [
         RestaurantModel
     ],
+    migrations: [
+        rootPath + '/migrations/*'
+    ],
     synchronize: false
 });
 
