@@ -18,11 +18,11 @@ export const AppDataSource = new DataSource({
     entities: [
         RestaurantModel
     ],
-    migrations: [
-        rootPath + '/migrations/*'
-    ],
+    // migrations: [
+    //     rootPath + '/migrations/*'
+    // ],
     // logging: true,
-    synchronize: true,
+    synchronize: false,
 });
 
 AppDataSource.initialize()
