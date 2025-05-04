@@ -41,7 +41,6 @@ const rootPath = path.resolve('./');
 exports.restaurantPage = (0, express_1.Router)();
 exports.restaurantPage.use(express_1.default.static(rootPath + '/dist/public/'));
 exports.restaurantPage.get('/', (req, res, next) => {
-    console.log(rootPath + '/dist/public/' + 'index.html');
     res.sendFile(rootPath + '/dist/public/' + 'index.html');
 });
 exports.restaurantPage.get('/restaurant', (req, res, next) => {

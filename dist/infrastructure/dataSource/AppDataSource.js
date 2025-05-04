@@ -19,9 +19,9 @@ exports.AppDataSource = new typeorm_1.DataSource({
     entities: [
         RestaurantModel_1.RestaurantModel
     ],
-    // migrations: [
-    //     rootPath + '/migrations/*'
-    // ],
+    migrations: [
+        rootPath + '/migrations/*'
+    ],
     // logging: true,
     synchronize: false,
 });
