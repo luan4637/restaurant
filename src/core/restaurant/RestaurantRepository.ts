@@ -8,4 +8,12 @@ export class RestaurantRepository extends GenericRepository<RestaurantModel> imp
     constructor() {
         super(AppDataSource.getRepository(RestaurantModel));
     }
+
+    getLatest(): Promise<RestaurantModel[]> {
+        return this.repository.find({
+            order: {
+                id: "DESC",
+            }
+        });
+    }
 }

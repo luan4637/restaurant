@@ -8,5 +8,12 @@ class RestaurantRepository extends GenericRepository_1.GenericRepository {
     constructor() {
         super(AppDataSource_1.AppDataSource.getRepository(RestaurantModel_1.RestaurantModel));
     }
+    getLatest() {
+        return this.repository.find({
+            order: {
+                id: "DESC",
+            }
+        });
+    }
 }
 exports.RestaurantRepository = RestaurantRepository;

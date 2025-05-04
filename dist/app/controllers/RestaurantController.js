@@ -9,7 +9,7 @@ class RestaurantController extends BaseController_1.BaseController {
         this.restaurantRepository = new RestaurantRepository_1.RestaurantRepository();
     }
     index() {
-        const results = this.restaurantRepository.findAll();
+        const results = this.restaurantRepository.getLatest();
         this.jsonResponse(results);
     }
     update() {

@@ -16,7 +16,7 @@ export class RestaurantController extends BaseController
 
     index()
     {
-        const results = this.restaurantRepository.findAll();
+        const results = this.restaurantRepository.getLatest();
         
         this.jsonResponse(results);
     }

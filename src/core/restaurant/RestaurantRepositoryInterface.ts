@@ -3,5 +3,5 @@ import { GenericRepositoryInterface } from "../../infrastructure/generic/Generic
 
 export interface RestaurantRepositoryInterface extends GenericRepositoryInterface<RestaurantModel>
 {
-    
+    getLatest(): Promise<RestaurantModel[]>;
 }
