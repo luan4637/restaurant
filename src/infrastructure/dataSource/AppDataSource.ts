@@ -7,24 +7,20 @@ const process = require('process');
 const rootPath = path.resolve('./');
 const env = process.env.NODE_ENV || 'development';
 const config = require(rootPath + '/config/config.json')[env];
-const configtest = require(rootPath + '/config/config.json');
-
-console.log(env);
-console.log(configtest);
 
 export const AppDataSource = new DataSource({
-    type: 'mysql',
-    host: 'localhost',
-    port: 3306,
-    username: 'restaurant_user',
-    password: 'restaurant_password',
-    database: 'restaurant_db',
+    type: config.dialect,
+    host: config.host || 'localhost',
+    port: config.port || 3306,
+    username: config.username,
+    password: config.password,
+    database: config.database,
     entities: [
         RestaurantModel
     ],
-    // migrations: [
-    //     rootPath + '/migrations/*'
-    // ],
+    migrations: [
+        rootPath + '/migrations/*'
+    ],
     // logging: true,
     synchronize: false,
 });

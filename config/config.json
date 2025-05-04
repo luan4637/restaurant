@@ -3,8 +3,16 @@
     "username": "restaurant_user",
     "password": "restaurant_password",
     "database": "restaurant_db",
-    "host": "localhost",
-    "dialect": "mysql"
+    "host": "host.docker.internal",
+    "dialect": "postgres",
+    "port": 5432
+  },
+  "production": {
+    "username": "restaurant_db_fp47_user",
+    "password": "av07uTIexVtfdiJ4I8Sqnem7I6K3gJkV",
+    "database": "restaurant_db_fp47",
+    "host": "dpg-d0bfvl15pdvs73cksb30-a",
+    "dialect": "postgres",
+    "port": 5432
   }
 }
-  

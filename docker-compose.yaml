@@ -1,5 +1,15 @@
 version: '0.01'
 services:
+  postgres:
+    image: postgres:16
+    hostname: postgres
+    shm_size: 128mb
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: restaurant_db
+      POSTGRES_USER: restaurant_user
+      POSTGRES_PASSWORD: restaurant_password
   mysql:
     image: mysql:8.0.39
     hostname: mysql
@@ -16,13 +26,13 @@ services:
       retries: 10
     networks:
       - internal
-  phpmyadmin:
-    image: phpmyadmin
-    ports:
-      - 8080:80
-    environment:
-      - PMA_HOSTS=host.docker.internal
-      - PMA_USER=root
+  # phpmyadmin:
+  #   image: phpmyadmin
+  #   ports:
+  #     - 8080:80
+  #   environment:
+  #     - PMA_HOSTS=host.docker.internal
+  #     - PMA_USER=root
   backend:
     image: node:lts-alpine
     volumes:
@@ -33,35 +43,42 @@ services:
       - sh
       - "-c"
       - |
-        cd /usr/share
-        npm install
-        # npm run build
-        # npm run typeorm migration:generate ./migrations/migration -- -d ./src/infrastructure/dataSource/AppDataSource.ts
-        npm run typeorm migration:run -- -d ./src/infrastructure/dataSource/AppDataSource.ts
-        npm run dev
-    depends_on:
-      mysql:
-        condition: service_healthy
-    networks:
-      - internal
-  frontend:
-    image: node:lts-alpine
-    volumes:
-      - .:/usr/share
-    ports:
-      - 5173:5173
-    command:
-      - sh
-      - "-c"
-      - |
         cd /usr/share/client
         npm install
-        npm run dev
+        npm run build
+
+        cd /usr/share
+        npm install
+        npm run typeorm migration:run -- -d ./src/infrastructure/dataSource/AppDataSource.ts
+        npm run build
+        npm run start
+
+        # npm run typeorm migration:generate ./migrations/migration -- -d ./src/infrastructure/dataSource/AppDataSource.ts
+        # npm run typeorm migration:run -- -d ./src/infrastructure/dataSource/AppDataSource.ts
+        # npm run dev
     depends_on:
       mysql:
         condition: service_healthy
     networks:
       - internal
+  # frontend:
+  #   image: node:lts-alpine
+  #   volumes:
+  #     - .:/usr/share
+  #   ports:
+  #     - 5173:5173
+  #   command:
+  #     - sh
+  #     - "-c"
+  #     - |
+  #       cd /usr/share/client
+  #       npm install
+  #       npm run dev
+  #   depends_on:
+  #     mysql:
+  #       condition: service_healthy
+  #   networks:
+  #     - internal
 networks:
   internal:
     driver: bridge
