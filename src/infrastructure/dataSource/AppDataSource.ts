@@ -19,8 +19,9 @@ export const AppDataSource = new DataSource({
         RestaurantModel
     ],
     migrations: [
-        rootPath + '/migrations/*'
+        rootPath + '/migrations/*.ts'
     ],
+    // logging: true,
     synchronize: false
 });
 
