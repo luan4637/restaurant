@@ -20,7 +20,7 @@ exports.AppDataSource = new typeorm_1.DataSource({
         RestaurantModel_1.RestaurantModel
     ],
     migrations: [
-        rootPath + '/migrations/*.ts'
+        '/migrations/*{.ts}'
     ],
     // logging: true,
     synchronize: false
