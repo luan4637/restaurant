@@ -22,7 +22,7 @@ exports.AppDataSource = new typeorm_1.DataSource({
     migrations: [
         rootPath + '/migrations/*'
     ],
-    // logging: true,
+    logging: true,
     synchronize: false,
 });
 exports.AppDataSource.initialize()

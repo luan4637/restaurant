@@ -21,7 +21,7 @@ export const AppDataSource = new DataSource({
     migrations: [
         rootPath + '/migrations/*'
     ],
-    // logging: true,
+    logging: true,
     synchronize: false,
 });
 
