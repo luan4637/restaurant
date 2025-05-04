@@ -3,7 +3,7 @@
     "username": "restaurant_user",
     "password": "restaurant_password",
     "database": "restaurant_db",
-    "host": "host.docker.internal",
+    "host": "postgres",
     "dialect": "postgres",
     "port": 5432
   },
