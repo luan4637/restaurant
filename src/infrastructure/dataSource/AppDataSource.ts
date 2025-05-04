@@ -16,13 +16,13 @@ export const AppDataSource = new DataSource({
     password: config.password,
     database: config.database,
     entities: [
-        // RestaurantModel
+        RestaurantModel
     ],
     migrations: [
         rootPath + '/migrations/*'
     ],
-    logging: true,
-    synchronize: false,
+    // logging: true,
+    synchronize: false
 });
 
 AppDataSource.initialize()
