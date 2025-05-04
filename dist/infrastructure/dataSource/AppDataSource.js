@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppDataSource = void 0;
 require("reflect-metadata");
 const typeorm_1 = require("typeorm");
-const RestaurantModel_1 = require("../../core/restaurant/RestaurantModel");
 const path = require('path');
 const process = require('process');
 const rootPath = path.resolve('./');
@@ -17,7 +16,7 @@ exports.AppDataSource = new typeorm_1.DataSource({
     password: config.password,
     database: config.database,
     entities: [
-        RestaurantModel_1.RestaurantModel
+    // RestaurantModel
     ],
     migrations: [
         rootPath + '/migrations/*'

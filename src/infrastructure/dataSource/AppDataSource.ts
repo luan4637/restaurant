@@ -16,7 +16,7 @@ export const AppDataSource = new DataSource({
     password: config.password,
     database: config.database,
     entities: [
-        RestaurantModel
+        // RestaurantModel
     ],
     migrations: [
         rootPath + '/migrations/*'
