@@ -9,6 +9,7 @@ const env = process.env.NODE_ENV || 'development';
 const config = require(rootPath + '/config/config.json')[env];
 const configtest = require(rootPath + '/config/config.json');
 
+console.log(env);
 console.log(configtest);
 
 export const AppDataSource = new DataSource({
